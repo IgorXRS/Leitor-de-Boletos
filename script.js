@@ -1,14 +1,10 @@
-// Adicione o código JavaScript aqui para processar o boleto e exibir as informações no #info-boleto
-
-function processarBoleto() {
-    const fileInput = document.getElementById('fileInput');
+function processarCodigoDeBarras() {
+    const codigoDeBarras = document.getElementById('codigoDeBarrasInput').value;
     const infoBoleto = document.getElementById('info-boleto');
 
-    const imagemDoCodigoDeBarras = fileInput.files[0];
-
-    if (imagemDoCodigoDeBarras) {
+    if (codigoDeBarras) {
         // Use a função lerCodigoDeBarras do exemplo anterior para obter os dados do boleto
-        lerCodigoDeBarras(imagemDoCodigoDeBarras)
+        lerCodigoDeBarras(codigoDeBarras)
             .then((codigoDeBarrasDecodificado) => {
                 // Exiba os detalhes do boleto no elemento #info-boleto
                 infoBoleto.innerHTML = `
@@ -22,6 +18,6 @@ function processarBoleto() {
                 infoBoleto.innerHTML = '<p>Erro ao processar o boleto. Verifique o console para mais detalhes.</p>';
             });
     } else {
-        infoBoleto.innerHTML = '<p>Por favor, selecione uma imagem do código de barras.</p>';
+        infoBoleto.innerHTML = '<p>Por favor, digite o código de barras.</p>';
     }
 }
